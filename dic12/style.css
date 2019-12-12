@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+.card-deck{
+	width: 100%;
+	padding: 5%;
+}
+
+.card-img-top {
+	width: 230px;	
+}
+
+.card {
+	align-items: center;
+}
+.linea1{
+	border: 1px solid #4A4141;
+}
+
+.linea2{
+	border: 1px thin ;
+	width: 40%;
+	border-top: 0.5px solid #4A4141;
+}
+
+.add{
+	width: 20px;
+	height: 20px;
+	margin-top: 6px;
+}
