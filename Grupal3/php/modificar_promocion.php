@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css" >
     <link rel="stylesheet" href="../css/sb-admin.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/stacktable.css">
 
     <script src="../js/jquery-1.10.2.js"></script>
@@ -80,11 +81,11 @@
 
 					<div class="contenido">
 						<div class="for_mod">
-							<form method="post" class="table-responsive{-sm|-md|-lg|-xl} ">
+							<form method="post" class="table-responsive{-sm|-md|-lg|-xl} " onsubmit="return validar()">
 								<p><center>MODIFICAR PROMOCION</center></p>
 					
-									Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control">
-						   					<span id="nameInfo"></span><br>
+									Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control" onblur="validarNombre()">
+						   					<span id="nombreInfo"></span><br>
 
 									Año   <br><input type="date" name="ano" id="ano" value="<?php echo $arr_mod[1]; ?>" class="form-control">
 						   					<span id="anoInfo"></span><br>
@@ -140,6 +141,7 @@
 			</div>
 		</div>
 	</div>
+			<script type="text/javascript" src="../js/script.js"></script>
     		<script src="../js/bootstrap.min.js"></script>
  </body>
 </html>

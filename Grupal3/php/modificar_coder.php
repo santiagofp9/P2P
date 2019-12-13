@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <title>.: Tomillo & F5 :.</title>
 
-    
     <link rel="stylesheet" href="../css/bootstrap.css" >
     <link rel="stylesheet" href="../css/sb-admin.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/stacktable.css">
 
     <script src="../js/jquery-1.10.2.js"></script>
@@ -78,17 +78,17 @@
 						$arr_mod=mysqli_fetch_array($re_mod);
 					?>
 					
-					<div class="contenido">
-						<div class="for_mod">
+					<div>
+						<div>
 							
-							<form method="post" class="table-responsive{-sm|-md|-lg|-xl} ">
+							<form method="post" class="table-responsive{-sm|-md|-lg|-xl} " onsubmit="return validarCoder()">
 								<p><center>MODIFICAR CODER</center></p>
-								Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control">
-										<span id="nameInfo"></span><br>
-								Apellidos <br><input type="text" name="apellido" id="apellido" value="<?php echo $arr_mod[1]; ?>" class="form-control">
-										<span id="apeInfo"></span><br>
-								Dni/Nie <br><input type="text" name="dni" id="dni" value="<?php echo $arr_mod[2]; ?>" class="form-control">
-										<span id="dniInfo"></span><br>
+								Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control" onblur="validarNombreApellido('nombre')">
+										<span id="nombreInfo"></span><br><br>
+								Apellidos <br><input type="text" name="apellido" id="apellido" value="<?php echo $arr_mod[1]; ?>" class="form-control" onblur="validarNombreApellido('apellido')">
+										<span id="apellidoInfo"></span><br><br>
+								Dni/Nie <br><input type="text" name="dni" id="dni" value="<?php echo $arr_mod[2]; ?>" class="form-control" onblur = "validarDNI()">
+										<span id="dniInfo"></span><br><br>
 								Fecha de Nacimiento<br><input placeholder="YYYY-MM-DD" type="date" name="fenac" id="fenac" value="<?php echo $arr_mod[3]; ?>" class="form-control"><br>
 
 								Nacionalidad<br>
@@ -160,6 +160,9 @@
 			</div>
 		</div>
   </div>
+
+  		<script type="text/javascript" src="../js/script.js"></script>
+
 		<script src="../js/bootstrap.min.js"></script>
 
   </body>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css" >
     <link rel="stylesheet" href="../css/sb-admin.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/stacktable.css">
 
     <script src="../js/jquery-1.10.2.js"></script>
@@ -81,11 +82,11 @@
 						<div class="contenido">
 								<div class="for_mod">
 			
-									<form method="post" class="table-responsive{-sm|-md|-lg|-xl} ">
+									<form method="post" class="table-responsive{-sm|-md|-lg|-xl} " onsubmit="return validar()">
 									<p><center>MODIFICAR FABRICA</center></p>
 					
-									Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control">
-						   					<span id="nameInfo"></span><br>
+									Nombre <br><input type="text" name="nombre" id="nombre" value="<?php echo $arr_mod[0]; ?>" class="form-control" onblur="validarNombre()">
+						   					<span id="nombreInfo"></span><br>
 									Ciudad<br>		
 											<select name="ciudad" class="form-control">
 												<?php 
@@ -138,6 +139,7 @@
 	</div>
     
 
+<script type="text/javascript" src="../js/script.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
  </body>

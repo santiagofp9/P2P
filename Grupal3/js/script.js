@@ -16,7 +16,7 @@ $('#myModal').on('shown.bs.modal', function () {
 })
 
 function validarNombreApellido(nombape){
-	var patron = /^(([A-ZÑÁÉÍÓÚ]|[a-zñáéíóú])+[\s]*){1}$/;
+	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+[\s]*){1}$/;
 	enviar = false;
 	if(document.getElementById(nombape).value==null || document.getElementById(nombape).value=="" || !patron.test(document.getElementById(nombape).value)){
 		enviar = false;
@@ -45,13 +45,7 @@ function validarDNI(){
 
 function validarCoder(){
 	enviar = false;
-	if(validarNombreApellido("nombre")){
-		enviar = true;
-	}
-	if(validarNombreApellido("apellido")){
-		enviar = true;
-	}
-	if(validarDNI()){
+	if(validarNombreApellido("nombre") && validarNombreApellido("apellido") && validarDNI()){
 		enviar = true;
 	}
 	return enviar;
@@ -90,7 +84,7 @@ function dias(){
 			for (var i=1; i<=31 ; i++) {
 				var opcion = document.createElement("option");
 				opcion.text = i;
-				opcion.value = "<?php echo "+i+"; ?>";
+				opcion.value = i;
 				document.getElementById("dia").add(opcion);
 			}
 			//alert("31");
@@ -99,7 +93,7 @@ function dias(){
 			for (var i=1; i<=30 ; i++) {
 				var opcion = document.createElement("option");
 				opcion.text = i;
-				opcion.value = "<?php echo "+i+"; ?>";
+				opcion.value = i;
 				document.getElementById("dia").add(opcion);
 			}
 			//alert("30");
@@ -108,7 +102,7 @@ function dias(){
 			for (var i=1; i<=29 ; i++) {
 				var opcion = document.createElement("option");
 				opcion.text = i;
-				opcion.value = "<?php echo "+i+"; ?>";
+				opcion.value = i;
 				document.getElementById("dia").add(opcion);
 			}
 			//alert("29");
@@ -117,7 +111,7 @@ function dias(){
 			for (var i=1; i<=28 ; i++) {
 				var opcion = document.createElement("option");
 				opcion.text = i;
-				opcion.value = "<?php echo "+i+"; ?>";
+				opcion.value = i;
 				document.getElementById("dia").add(opcion);
 			}
 			//alert("28");
@@ -127,7 +121,7 @@ function dias(){
 		for (var i=1; i<=31 ; i++) {
 			var opcion = document.createElement("option");
 			opcion.text = i;
-			opcion.value = "<?php echo "+i+"; ?>";
+			opcion.value = i;
 			document.getElementById("dia").add(opcion);
 		}
 		//alert("Default");

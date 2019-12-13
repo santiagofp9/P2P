@@ -180,7 +180,7 @@
 
                           Año <br><select name="ano" id="ano" class="form-control">
                           <?php
-                            for ($i=2019; $i<=2020 ; $i++) {?>
+                            for ($i=2019; $i<=3000 ; $i++) {?>
                             <option value="<?php echo $i; ?>">
                               <?php
                                 echo $i;
@@ -223,7 +223,8 @@
       </div>
    </div>
  </div>
-    
+
+<script type="text/javascript" src="../js/script.js"></script>    
 <script src="../js/bootstrap.min.js"></script>
 
   </body>
