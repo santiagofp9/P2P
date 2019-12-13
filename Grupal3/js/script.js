@@ -16,7 +16,7 @@ $('#myModal').on('shown.bs.modal', function () {
 })
 
 function validarNombreApellido(nombape){
-	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+[\s]*){1}$/;
+	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+[\s]?([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])*){1}$/;
 	enviar = false;
 	if(document.getElementById(nombape).value==null || document.getElementById(nombape).value=="" || !patron.test(document.getElementById(nombape).value)){
 		enviar = false;
@@ -60,8 +60,9 @@ function validar(){
 }
 
 function validarNombre(){
+	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+(([_]|[\-])?[0-9]*)){1}$/;
 	enviar = false;
-	if(document.getElementById("nombre").value==null || document.getElementById("nombre").value==""){
+	if(document.getElementById("nombre").value==null || document.getElementById("nombre").value=="" || !patron.test(document.getElementById("nombre").value)){
 		enviar = false;
 		document.getElementById("nombre"+"Info").innerHTML = " Error: Nombre no valido";
 	}
