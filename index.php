@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +23,31 @@
  <body>
 
   <div id="wrapper">
-
+<?php
+     
+     if(isset($_SESSION['nomb'])){
+         if($_SESSION['tipo'] == 'a'){
+             include 'espejoa.html';
+         }else if($_SESSION['tipo'] == 'r'){
+             include 'espejor.html';
+             
+         }else{
+             include 'espejof.html';
+         }
+         
+         echo "Bienvenido ".$_SESSION['nomb'];
+     }else{?>
+         <section>
+             
+             <nav>
+                 <a href="registro.php" class="btn btn-primary" role="button">Registro</a>
+                 <a href="login.html" class="btn btn-primary" role="button">Login</a>
+             </nav>
+     
+         </section>
+<?php     
+     }   
+?>
      
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
        
