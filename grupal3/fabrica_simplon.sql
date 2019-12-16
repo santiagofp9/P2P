@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2019 a las 17:11:49
+-- Tiempo de generación: 16-12-2019 a las 17:23:28
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -354,6 +354,29 @@ INSERT INTO `fabrica` (`id_fabrica`, `nombre`, `fk_ciudad`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `idHistorial` int(11) NOT NULL,
+  `fk_usuario` int(11) DEFAULT NULL,
+  `fk_promocion` int(11) DEFAULT NULL,
+  `estado` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`idHistorial`, `fk_usuario`, `fk_promocion`, `estado`) VALUES
+(1, 1, 5, 'I'),
+(2, 2, 6, 'A'),
+(3, 3, 3, 'A'),
+(4, 1, 2, 'A');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `login`
 --
 
@@ -364,20 +387,17 @@ CREATE TABLE `login` (
   `usuario` varchar(12) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
   `tipo` char(1) DEFAULT NULL,
-  `fk_promocion` int(3) DEFAULT NULL,
-  `fk_nacionalidad` int(11) DEFAULT NULL,
-  `fk_promocion2` int(11) DEFAULT NULL,
-  `fk_promocion3` int(11) DEFAULT NULL
+  `fk_nacionalidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `login`
 --
 
-INSERT INTO `login` (`idUser`, `nombre`, `apellido`, `usuario`, `password`, `tipo`, `fk_promocion`, `fk_nacionalidad`, `fk_promocion2`, `fk_promocion3`) VALUES
-(1, 'Edgar', 'Costilla', 'edgarc', 'edgarc', 'f', 6, 54, NULL, NULL),
-(2, 'Nuria', 'Nuriez', 'nurian', 'nurian', 'r', 1, 53, 2, 5),
-(3, 'Conchi', 'Conchez', 'conchic', 'conchic', 'a', NULL, 52, NULL, NULL);
+INSERT INTO `login` (`idUser`, `nombre`, `apellido`, `usuario`, `password`, `tipo`, `fk_nacionalidad`) VALUES
+(1, 'Edgar', 'Costilla', 'edgarc', 'edgarc', 'f', 54),
+(2, 'Nuria', 'Nuriez', 'nurian', 'nurian', 'r', 53),
+(3, 'Conchi', 'Conchez', 'conchic', 'conchic', 'a', 52);
 
 -- --------------------------------------------------------
 
@@ -599,6 +619,7 @@ CREATE TABLE `promocion` (
 INSERT INTO `promocion` (`id_promocion`, `nombre`, `ano`, `fk_fabrica`, `estado`) VALUES
 (1, 'promo_1', 2019, 1, '1'),
 (2, 'promo_2', 2020, 2, '1'),
+(3, 'Ninguno', 2020, 1, '1'),
 (5, 'promo_3', 2020, 1, '0'),
 (6, 'Factorina', 0000, 6, '0');
 
@@ -629,14 +650,19 @@ ALTER TABLE `fabrica`
   ADD KEY `fk_ciudad` (`fk_ciudad`);
 
 --
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`idHistorial`),
+  ADD KEY `fk_usuario` (`fk_usuario`),
+  ADD KEY `fk_promocion` (`fk_promocion`);
+
+--
 -- Indices de la tabla `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`idUser`),
-  ADD KEY `fk_promocion` (`fk_promocion`),
-  ADD KEY `fk_nacionalidad` (`fk_nacionalidad`),
-  ADD KEY `fk_promocion2` (`fk_promocion2`),
-  ADD KEY `fk_promocion3` (`fk_promocion3`);
+  ADD KEY `fk_nacionalidad` (`fk_nacionalidad`);
 
 --
 -- Indices de la tabla `pais`
@@ -672,6 +698,12 @@ ALTER TABLE `coder`
 --
 ALTER TABLE `fabrica`
   MODIFY `id_fabrica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
@@ -715,13 +747,17 @@ ALTER TABLE `fabrica`
   ADD CONSTRAINT `fabrica_ibfk_1` FOREIGN KEY (`fk_ciudad`) REFERENCES `ciudad` (`id_ciudad`);
 
 --
+-- Filtros para la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `login` (`idUser`),
+  ADD CONSTRAINT `historial_ibfk_2` FOREIGN KEY (`fk_promocion`) REFERENCES `promocion` (`id_promocion`);
+
+--
 -- Filtros para la tabla `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`fk_promocion`) REFERENCES `promocion` (`id_promocion`),
-  ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`fk_nacionalidad`) REFERENCES `pais` (`id_pais`),
-  ADD CONSTRAINT `login_ibfk_3` FOREIGN KEY (`fk_promocion2`) REFERENCES `promocion` (`id_promocion`),
-  ADD CONSTRAINT `login_ibfk_4` FOREIGN KEY (`fk_promocion3`) REFERENCES `promocion` (`id_promocion`);
+  ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`fk_nacionalidad`) REFERENCES `pais` (`id_pais`);
 
 --
 -- Filtros para la tabla `promocion`
@@ -733,3 +769,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
