@@ -48,13 +48,15 @@ function login($link){
             echo "Clave invalida";
         }
         
-        
-        
     }else{
         echo "Usuario no existe";
     }
 }
 
 
+function cerrarsesion($link){
+	session_destroy();
+   header("location:index.php");
+}
 
 ?>
