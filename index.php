@@ -23,50 +23,30 @@ session_start();
  <body>
 
   <div id="wrapper">
-<?php
-     
+	<?php
      if(isset($_SESSION['nomb'])){
          if($_SESSION['tipo'] == 'a'){
-             include 'espejoa.html';
+             include 'espejoa.php';
          }else if($_SESSION['tipo'] == 'r'){
-             include 'espejor.html';
+             include 'espejor.php';
              
          }else{
-             include 'espejof.html';
+             include 'espejof.php';
          }
          
          echo "Bienvenido ".$_SESSION['nomb'];
      }else{?>
-         <section>
-             
+         <section>          
              <nav>
                  <a href="registro.php" class="btn btn-primary" role="button">Registro</a>
                  <a href="login.html" class="btn btn-primary" role="button">Login</a>
              </nav>
-     
          </section>
 <?php     
      }   
 ?>
-     
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-       
-        <div class="navbar-header">
-      		<a class="navbar-brand" href="./">TOMILLO <sup><small><span class="label label-warning">F5</span></small></sup> </a>
-        </div>
-        
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          	<ul class="nav navbar-nav side-nav">
-         		<ul class="nav navbar-nav">
-          		</ul>
-          			 <li><a href="index.php"><i class="fa fa-home"></i> Inicio</a></li>
-          			<li><a href="php/fabricas.php"><i class='fa fa-tasks'></i> Fabricas </a></li>
-          			<li><a href="php/promociones.php"><i class="fa fa-users"></i> Promociones </a></li>
-          			<li><a href="php/coders.php"><i class="fa fa-smile-o"></i> Coders </a></li>
-          		</ul>
-
-        </div>
-    </nav>
+			
+      
     
     <div>
    		<img src="img/logop2p.png"class="p2p">
