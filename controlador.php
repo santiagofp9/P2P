@@ -11,8 +11,8 @@ switch($oculto){
         login($link);
         break;
     case 3:
-		cerrarsesion($link);
-		break;
+	cerrarsesion($link);
+	break;
 }
     
 
