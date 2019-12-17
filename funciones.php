@@ -15,8 +15,8 @@ function resgistrarUsu($link){
         $promou = $_POST['promocion'];
         $nacionalidad = $_POST['nacionalidad'];	
         $hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $con_agregar="INSERT INTO login(nombre,apellido,usuario,password,tipo,fk_promocion,fk_nacionalidad) 
-        VALUES('$nom','$ape','$usuario','$hash','$tipo','$promou','$nacionalidad')";
+        $con_agregar="INSERT INTO login(nombre,apellido,usuario,password,tipo,fk_nacionalidad) 
+        		VALUES('$nom','$ape','$usuario','$hash','$tipo','$nacionalidad')";
         include 'conexion.php';
         mysqli_query($link,$con_agregar);	
         echo mysqli_error($link);    
