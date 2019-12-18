@@ -1,3 +1,4 @@
+<?php session_start();?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -42,7 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./"> TOMILLO <sup><small><span class="label label-warning">F5</span></small></sup> </a>
+          <a class="navbar-brand" href="../index.php"> TOMILLO <sup><small><span class="label label-warning">F5</span></small></sup> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,12 +60,23 @@
 
 
             <ul class="nav navbar-nav navbar-right navbar-user">
-                <li class="dropdown user-dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Usuario <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.php?view=configuration">Configuracion</a></li>
-                    <li><a href="logout.php">Salir</a></li>
-                </ul>
-              </li>
+        		<li class="dropdown user-dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<?php if(isset($_SESSION['nomb'])){
+         				echo "Bienvenido ".$_SESSION['nomb'];?>
+					<b class="caret"></b>
+				</a>
+             	<ul class="dropdown-menu">
+					<nav>
+                 		<form action="controlador.php" method="post" class="formlogin">
+							<li></li><input type="hidden" name="oculto" value="3"></li>
+							<li></li><button type="submit" class="btn">Cerrar Sesión</button></li> 
+						</form> 
+             		</nav> 
+					<?php } ?>
+             	</ul>
+             	</li>
+          	  </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
 
