@@ -1,7 +1,5 @@
 <?php
 
-
-
 function resgistrarUsu($link){
     $consulta = " select * from login where usuario ='$_POST[usuario]'";
     $r = mysqli_query($link,$consulta);
@@ -13,14 +11,22 @@ function resgistrarUsu($link){
         $usuario = $_POST['usuario'];			
         $tipo = $_POST['tipo'];
         $promou = $_POST['promocion'];
-        $nacionalidad = $_POST['nacionalidad'];	
+        $nacionalidad = $_POST['nacionalidad']; 
         $hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $con_agregar="INSERT INTO login(nombre,apellido,usuario,password,tipo,fk_nacionalidad) 
-        		VALUES('$nom','$ape','$usuario','$hash','$tipo','$nacionalidad')";
-        include 'conexion.php';
-        mysqli_query($link,$con_agregar);	
+        $con_agregar="INSERT INTO login(nombre,apellido,usuario,password,tipo,fk_nacionalidad)
+					  VALUES('$nom','$ape','$usuario','$hash','$tipo','$nacionalidad')";
+		include 'conexion.php';
+        mysqli_query($link,$con_agregar);	  
+		$iden = "SELECT login.idUser 
+				 FROM login WHERE login.usuario = '$usuario'";
+		$v = mysqli_query($link,$iden);
+		$arrv = mysqli_fetch_array($v);
+		$historial = "INSERT INTO historial (fk_usuario,fk_promocion,estado)
+					  VALUES ('$arrv[0]','$promou','A')";		
+       	mysqli_query($link,$historial);
+		echo $historial;
         echo mysqli_error($link);    
-        header('location:index.php'); 
+        header('location:index.php');
         
     }
     else{
