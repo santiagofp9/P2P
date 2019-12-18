@@ -1,7 +1,4 @@
-<?php
-session_start();
-
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,11 +15,18 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
  	<script src="js/jquery-1.10.2.js"></script>
- </head>
+  </head>
 
+	
  <body>
 
   <div id="wrapper">
+	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <div class="navbar-header">
+			  <a class="navbar-brand" href="index.php">TOMILLO<sup><small><span class="label label-warning">F5</span></small></sup></a>
+		  </div>
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">	  
+		  
 	<?php
      if(isset($_SESSION['nomb'])){
          if($_SESSION['tipo'] == 'a'){
@@ -33,8 +37,6 @@ session_start();
          }else{
              include 'espejof.php';
          }
-         
-         echo "Bienvenido ".$_SESSION['nomb'];
      }else{?>
          <section>          
              <nav>
@@ -42,30 +44,20 @@ session_start();
                  <a href="login.html" class="btn btn-primary" role="button">Login</a>
              </nav>
          </section>
-<?php     
-     }   
-?>
-			
-      
+	<?php } ?>  
+			  
+		  </div>	
+	  </nav>
     
-    <div>
-   		<img src="img/logop2p.png"class="p2p">
-
-     </div>
-     <div class="lema">
-     	<h3>"No venimos a vendernos, porque estamos seguros que nuestro producto por si solo puede convencerte.
+    <div><img src="img/logop2p.png"class="p2p"></div>
+    <div class="lema">
+    	<h3>"No venimos a vendernos, porque estamos seguros que nuestro producto por si solo puede convencerte.
 		Hablamos sólo lo necesario, pero hacemos todo lo posible
-		empleando herramientas tecnológicas, cuidando el medio ambiente y trabajando siempre en grupo"</h3>
-
-
-
-     </div>
-
+		empleando herramientas tecnológicas, cuidando el medio ambiente y trabajando siempre en grupo"</h3>     
+	</div>
   </div>
-
-  
 
 <script src="js/bootstrap.min.js"></script>
 
-  </body>
+ </body>
 </html>
