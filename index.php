@@ -40,7 +40,6 @@
      }else{?>
          <section>          
              <nav>
-                 <a href="registro.php" class="btn btn-primary" role="button">Registro</a>
                  <a href="login.html" class="btn btn-primary" role="button">Login</a>
              </nav>
          </section>
