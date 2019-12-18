@@ -54,8 +54,20 @@ Nacionalidad <select name="nacionalidad" id="nacionalidad" class="campo">
     
 <input type="hidden" name="oculto" value="1">
 <input type="submit" class="boton"> 
+<span id="mensajecapr"></span>
 </form>
-     
+  <div id="captcha">
+                
+                <label class="operacionc" for="respuesta">
+                 <div id="valor1"></div><div>+</div><div id="valor2"></div>
+                </label>
+                <input type="text" name="captcha" id="respuesta" onblur="validarResultado()"><br><br>
+                 <p>Introduzca los valores presentados y su resultado</p>
+                <?php /*?><button id="benviar1">Verificar</button><?php */?>
+                <span id="mensajecap"></span>
+    
+                 
+ </div>   
      
      
 </section>    
