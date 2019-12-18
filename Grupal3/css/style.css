@@ -2,6 +2,11 @@ span{
 	color: red;
 }
 
+.operacionc{
+    display: flex;
+    flex-direction: row;
+}
+
 .overlay{
 	background:  rgba(0, 0, 0,.5);
 	position: fixed;
@@ -55,4 +60,12 @@ span{
 	text-align:center;
 	margin:auto;
 	
+}
+
+#captcha{
+    display: none;
+}
+
+#botontest{
+    display: none;
 }
