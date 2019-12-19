@@ -16,7 +16,7 @@ $('#myModal').on('shown.bs.modal', function () {
 })
 
 function validarNombreApellido(nombape){
-	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+[\s]?([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])*){1}$/;
+	var patron = /^(([A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ]|[a-zñáéíóúàèìòùäëïöüâêîôû])+[\s]?)+$/;
 	enviar = false;
 	if(document.getElementById(nombape).value==null || document.getElementById(nombape).value=="" || !patron.test(document.getElementById(nombape).value)){
 		enviar = false;
