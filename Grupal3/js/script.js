@@ -129,4 +129,18 @@ function dias(){
 	}
 }
 
+function seguro(id){
+    if (confirm('¿Estas seguro que quieres eleminar el siguiente registro?')) {
+    
+    alert("Elemento eliminado");
+        /*window.location.href=="eliminar_coder.php?eli=id";*/
+    } else {
+    alert("Accion cancelada");
+        event.preventDefault();
+    /*window.location.href == "coders.php";*/
+    
+}
+        
+}
+
 dias();
