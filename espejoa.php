@@ -3,7 +3,8 @@
         	<li><a href="index.php"><i class="fa fa-home"></i> Inicio</a></li>
           	<li><a href="php/fabricas.php"><i class='fa fa-tasks'></i> Fabricas </a></li>
           	<li><a href="php/promociones.php"><i class="fa fa-users"></i> Promociones </a></li>
-          	<li><a href="php/coders.php"><i class="fa fa-smile-o"></i> Coders </a></li>			
+          	<li><a href="php/coders.php"><i class="fa fa-smile-o"></i> Coders </a></li>
+		<li><a href="php/historial.php"><i class="fa fa-smile-o"></i> Historial </a></li>
         </ul>
 		<ul class="nav navbar-nav navbar-right navbar-user">
         	<li class="dropdown user-dropdown">
