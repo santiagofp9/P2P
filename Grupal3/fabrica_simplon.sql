@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2019 a las 17:23:28
+-- Tiempo de generación: 19-12-2019 a las 10:06:10
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -372,7 +372,10 @@ INSERT INTO `historial` (`idHistorial`, `fk_usuario`, `fk_promocion`, `estado`) 
 (1, 1, 5, 'I'),
 (2, 2, 6, 'A'),
 (3, 3, 3, 'A'),
-(4, 1, 2, 'A');
+(4, 1, 2, 'A'),
+(5, 6, 6, 'A'),
+(6, 7, 6, 'A'),
+(9, 10, 6, 'A');
 
 -- --------------------------------------------------------
 
@@ -397,7 +400,11 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`idUser`, `nombre`, `apellido`, `usuario`, `password`, `tipo`, `fk_nacionalidad`) VALUES
 (1, 'Edgar', 'Costilla', 'edgarc', 'edgarc', 'f', 54),
 (2, 'Nuria', 'Nuriez', 'nurian', 'nurian', 'r', 53),
-(3, 'Conchi', 'Conchez', 'conchic', 'conchic', 'a', 52);
+(3, 'Conchi', 'Conchez', 'conchic', 'conchic', 'a', 52),
+(5, 'pedro', 'navaja', 'pedron', '$2y$10$fXBmeGNzrSIQ7QL2/4a8NuaHJINRKBjgH9.s5JrlklfomODemZKse', 'a', 184),
+(6, 'juanito', 'alimaña', 'juanitoa', 'juanitoa', 'a', 54),
+(7, 'juanelo', 'alimaña', 'juaneloa', 'juaneloa', 'a', 57),
+(10, 'pancho', 'pantera', 'panchop', '$2y$10$o5EDj1FNEs7L5jNEoZAoQ.FuLY27bDlSKoi7pstFnrwv3T4mBS0HW', 'a', 184);
 
 -- --------------------------------------------------------
 
@@ -703,13 +710,13 @@ ALTER TABLE `fabrica`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
