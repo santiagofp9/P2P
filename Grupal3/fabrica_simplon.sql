@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2019 a las 10:06:10
+-- Tiempo de generación: 19-12-2019 a las 17:34:09
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -371,11 +371,14 @@ CREATE TABLE `historial` (
 INSERT INTO `historial` (`idHistorial`, `fk_usuario`, `fk_promocion`, `estado`) VALUES
 (1, 1, 5, 'I'),
 (2, 2, 6, 'A'),
-(3, 3, 3, 'A'),
-(4, 1, 2, 'A'),
-(5, 6, 6, 'A'),
-(6, 7, 6, 'A'),
-(9, 10, 6, 'A');
+(3, 3, 3, 'I'),
+(4, 1, 2, 'I'),
+(5, 6, 6, 'I'),
+(6, 7, 6, 'I'),
+(9, 10, 6, 'I'),
+(10, 1, 6, 'I'),
+(14, 6, 1, 'A'),
+(15, 11, 2, 'A');
 
 -- --------------------------------------------------------
 
@@ -404,7 +407,8 @@ INSERT INTO `login` (`idUser`, `nombre`, `apellido`, `usuario`, `password`, `tip
 (5, 'pedro', 'navaja', 'pedron', '$2y$10$fXBmeGNzrSIQ7QL2/4a8NuaHJINRKBjgH9.s5JrlklfomODemZKse', 'a', 184),
 (6, 'juanito', 'alimaña', 'juanitoa', 'juanitoa', 'a', 54),
 (7, 'juanelo', 'alimaña', 'juaneloa', 'juaneloa', 'a', 57),
-(10, 'pancho', 'pantera', 'panchop', '$2y$10$o5EDj1FNEs7L5jNEoZAoQ.FuLY27bDlSKoi7pstFnrwv3T4mBS0HW', 'a', 184);
+(10, 'pancho', 'pantera', 'panchop', '$2y$10$o5EDj1FNEs7L5jNEoZAoQ.FuLY27bDlSKoi7pstFnrwv3T4mBS0HW', 'a', 184),
+(11, 'lorena', 'romero', 'lorenar', '$2y$10$dvDsuo2Gy1Tb92aZ2PAQLu6QFl/N0jvL3.VHZfc4iBjwexuvxSvCG', 'f', 169);
 
 -- --------------------------------------------------------
 
@@ -710,13 +714,13 @@ ALTER TABLE `fabrica`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
